@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import errors from 'express-async-errors';
-
+import cors from "cors";
 // Database connection
 import connectToDB from './db/connect.js';
 
@@ -16,6 +16,7 @@ import errorHandlerMiddleware from './middleware/error-handler.middleware.js';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/v1/auth', authRouter);
