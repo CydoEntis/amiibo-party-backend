@@ -3,7 +3,6 @@ const { BadRequestError } = require('../errors/index.js');
 const Amiibo = require('../models/amiibo.model.js');
 
 const getAmiibos = async (req, res) => {
-	console.log(req.query.userId);
 	try {
 		const amiibos = await Amiibo.find({ userId: req.query.userId});
 
