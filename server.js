@@ -3,6 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 import errors from 'express-async-errors';
 import cors from "cors";
+
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 // Database connection
 import connectToDB from './db/connect.js';
 
@@ -14,18 +19,13 @@ import amiiboRouter from './routes/amiibo.routes.js'
 import notFoundMiddleware from './middleware/not-found.middleware.js';
 import errorHandlerMiddleware from './middleware/error-handler.middleware.js';
 
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, '/build/index.html'), function (err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
+app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/amiibos', amiiboRouter);
