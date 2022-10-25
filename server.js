@@ -19,6 +19,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '/build/index.html'), function (err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/amiibos', amiiboRouter);
 
