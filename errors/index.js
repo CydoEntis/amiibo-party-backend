@@ -1,4 +1,4 @@
-import BadRequestError from './bad-request.js';
-import NotFoundError from './not-found.js';
+const BadRequestError = require('./bad-request.js');
+const NotFoundError = require('./not-found.js');
 
 export { BadRequestError, NotFoundError };

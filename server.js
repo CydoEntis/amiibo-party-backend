@@ -1,31 +1,30 @@
-import express from 'express';
-import dotenv from 'dotenv';
+const express = require('express');
+const dotenv = require('dotenv');
 dotenv.config();
-import errors from 'express-async-errors';
-import cors from "cors";
-
-// import { dirname } from 'path';
-// import { fileURLToPath } from 'url';
-// import path from 'path';
+const errors = require('express-async-errors');
+const cors = require('cors');
+const path = require('path');
 
 // Database connection
-import connectToDB from './db/connect.js';
+const connectToDB = require('./db/connect.js');
 
 // Routers
-import authRouter from './routes/auth.routes.js';
-import amiiboRouter from './routes/amiibo.routes.js'
+const authRouter = require('./routes/auth.routes.js');
+const amiiboRouter = require('./routes/amiibo.routes.js');
 
 //Middleware
-import notFoundMiddleware from './middleware/not-found.middleware.js';
-import errorHandlerMiddleware from './middleware/error-handler.middleware.js';
-
+const notFoundMiddleware = require('./middleware/not-found.middleware.js');
+const errorHandlerMiddleware = require('./middleware/error-handler.middleware.js');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// app.use(express.static(path.resolve(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/amiibos', amiiboRouter);

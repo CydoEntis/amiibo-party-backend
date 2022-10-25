@@ -1,5 +1,5 @@
-import CustomError from "./custom-error.js";
-import { StatusCodes } from "http-status-codes";
+const CustomError = require("./custom-error.js");
+const { StatusCodes } = require("http-status-codes");
 
 class BadRequestError extends CustomError {
   constructor(message) {

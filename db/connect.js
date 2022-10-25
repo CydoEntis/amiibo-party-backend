@@ -1,5 +1,5 @@
 // TODO: Set up database connection
-import mongoose from "mongoose";
+const  mongoose = require("mongoose");
 
 const connectToDB = url => {
   return mongoose.connect(url);

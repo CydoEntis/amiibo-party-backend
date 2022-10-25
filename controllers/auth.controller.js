@@ -1,6 +1,6 @@
-import User from '../models/user.model.js';
-import { BadRequestError } from '../errors/index.js';
-import { StatusCodes } from 'http-status-codes';
+const User = require('../models/user.model.js');
+const { BadRequestError } = require('../errors/index.js');
+const { StatusCodes } = require('http-status-codes');
 
 const register = async (req, res) => {
 	const { username, email, password } = req.body;

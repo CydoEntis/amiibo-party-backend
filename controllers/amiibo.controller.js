@@ -1,6 +1,6 @@
-import { StatusCodes } from 'http-status-codes';
-import { BadRequestError } from '../errors/index.js';
-import Amiibo from '../models/amiibo.model.js';
+const { StatusCodes } = require('http-status-codes');
+const { BadRequestError } = require('../errors/index.js');
+const Amiibo = require('../models/amiibo.model.js');
 
 const getAmiibos = async (req, res) => {
 	console.log(req.query.userId);
