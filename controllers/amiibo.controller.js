@@ -118,7 +118,7 @@ const getCollected = async (req, res) => {
 	}
 }
 
-export {
+module.exports = {
 	getAmiibos,
 	getAmiibo,
 	saveAmiibo,

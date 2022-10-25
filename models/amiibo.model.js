@@ -49,4 +49,4 @@ const AmiiboSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-export default mongoose.model('Amiibo', AmiiboSchema);
+module.exports =  mongoose.model('Amiibo', AmiiboSchema);

@@ -5,4 +5,4 @@ const connectToDB = url => {
   return mongoose.connect(url);
 }
 
-export default connectToDB;
+module.exports = connectToDB;

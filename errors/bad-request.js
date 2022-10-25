@@ -8,4 +8,4 @@ class BadRequestError extends CustomError {
   }
 }
 
-export default BadRequestError;
+module.exports = BadRequestError;

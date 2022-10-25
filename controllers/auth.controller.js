@@ -58,4 +58,4 @@ const updateUser = async (req, res) => {
 	res.send('Update User');
 };
 
-export { register, login, updateUser };
+module.exports = { register, login, updateUser };
