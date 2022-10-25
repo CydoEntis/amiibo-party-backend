@@ -21,11 +21,7 @@ const register = async (req, res) => {
 	const token = user.createJWT();
 
 	res.status(StatusCodes.OK).json({
-		user: {
-			userId: user._id,
-			username: user.username,
-			email: user.email,
-		},
+		user,
 		token,
 	});
 };
@@ -55,7 +51,6 @@ const login = async (req, res) => {
 	res.status(StatusCodes.OK).json({
 		user,
 		token,
-		// Todo add Amiibo Collection.
 	});
 };
 
